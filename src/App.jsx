@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Smart LED Controller</h1>
+        <h1>Aravind's Controller</h1>
       </header>
       <main>
         <section>
