@@ -1,39 +1,42 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
-  // const [count, setCount] = useState(0);
-  const [Status,setStatus] = useState("OFF")
+  const [status, setStatus] = useState("OFF");
 
   function handleOn() {
-    alert('Device is ON');
-    setStatus("ON");
+    axios.post('http://localhost:3001/turnOn')
+      .then(response => {
+        setStatus("ON");
+      })
+      .catch(error => {
+        console.error('Error turning on the LED:', error);
+      });
   }
 
   function handleOff() {
-    alert('Device is OFF');
-    setStatus("OFF");
+    axios.post('http://localhost:3001/turnOff')
+      .then(response => {
+        setStatus("OFF");
+      })
+      .catch(error => {
+        console.error('Error turning off the LED:', error);
+      });
   }
 
   return (
     <div className="app-container">
       <header>
-        <h1>Aravind's Controller</h1>
+        <h1>Smart LED Controller</h1>
       </header>
       <main>
         <section>
-          <h2>Status: {Status === "OFF" ? 'OFF' : 'ON'}</h2>
+          <h2>Status: {status}</h2>
           <div className="device-buttons">
             <button onClick={handleOn}>Turn On</button>
             <button onClick={handleOff}>Turn Off</button>
           </div>
-        </section>
-        <section>
-          <h2>Additional Information</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-            felis eu ex aliquam consectetur.
-          </p>
         </section>
       </main>
       <footer>
