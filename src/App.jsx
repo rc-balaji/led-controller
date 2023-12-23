@@ -6,7 +6,7 @@ function App() {
   const [status, setStatus] = useState("OFF");
 
   function handleOn() {
-    axios.post('https://led-server.onrender.comturnOn')
+    axios.post('https://led-server.onrender.com/turnOn')
       .then(response => {
         setStatus("ON");
       })
@@ -26,7 +26,7 @@ function App() {
   }
 
   function handleBlink() {
-    axios.post('http://localhost:3001/blink')
+    axios.post('https://led-server.onrender.com/blink')
       .then(response => {
         setStatus("BLINKING");
       })
