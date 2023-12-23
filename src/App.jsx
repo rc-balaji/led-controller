@@ -42,7 +42,7 @@ function App() {
       </header>
       <main>
         <section>
-          <h2>Status: {status}</h2>
+          <h2 style={{color:'black'}} >Status: {status}</h2>
           <div className="device-buttons">
             <button onClick={handleOn}>Turn On</button>
             <button onClick={handleOff}>Turn Off</button>
