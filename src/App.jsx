@@ -6,7 +6,7 @@ function App() {
   const [status, setStatus] = useState("OFF");
 
   function handleOn() {
-    axios.post('http://localhost:3001/turnOn')
+    axios.post('https://led-server.onrender.comturnOn')
       .then(response => {
         setStatus("ON");
       })
@@ -16,7 +16,7 @@ function App() {
   }
 
   function handleOff() {
-    axios.post('http://localhost:3001/turnOff')
+    axios.post('https://led-server.onrender.com/turnOff')
       .then(response => {
         setStatus("OFF");
       })
@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Smart LED Controller</h1>
+        <h1>Aravind's Controller</h1>
       </header>
       <main>
         <section>
