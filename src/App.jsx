@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Aravind's Controller</h1>
+        <h1>RC Balaji's Controller</h1>
       </header>
       <main>
         <section>
