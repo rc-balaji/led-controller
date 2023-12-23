@@ -6,7 +6,7 @@ function App() {
   const [status, setStatus] = useState("OFF");
 
   function handleOn() {
-    axios.post('https://led-server.onrender.com/turnOn')
+    axios.post('http://localhost:3001/turnOn')
       .then(response => {
         setStatus("ON");
       })
@@ -16,7 +16,7 @@ function App() {
   }
 
   function handleOff() {
-    axios.post('https://led-server.onrender.com/turnOff')
+    axios.post('http://localhost:3001/turnOff')
       .then(response => {
         setStatus("OFF");
       })
@@ -25,10 +25,20 @@ function App() {
       });
   }
 
+  function handleBlink() {
+    axios.post('http://localhost:3001/blink')
+      .then(response => {
+        setStatus("BLINKING");
+      })
+      .catch(error => {
+        console.error('Error blinking the LED:', error);
+      });
+  }
+
   return (
     <div className="app-container">
       <header>
-        <h1>Aravind's Controller</h1>
+        <h1>Smart LED Controller</h1>
       </header>
       <main>
         <section>
@@ -36,6 +46,7 @@ function App() {
           <div className="device-buttons">
             <button onClick={handleOn}>Turn On</button>
             <button onClick={handleOff}>Turn Off</button>
+            <button onClick={handleBlink}>Blink</button>
           </div>
         </section>
       </main>

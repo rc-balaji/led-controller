@@ -29,6 +29,13 @@ app.post('/turnOff', (req, res) => {
   res.json({ success: true, message: 'LED turned OFF' });
 });
 
+app.post('/blink', (req, res) => {
+  mqttClient.publish('device/status', 'LED_BLINK');
+  res.json({ success: true, message: 'LED blinking' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+ 
